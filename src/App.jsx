@@ -1,41 +1,29 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import Meetings from "./pages/Meetings/Meetings";
-import Calendar from "./pages/Calendar/Calendar";
-import Events from "./pages/Events/Events";
-import Tournaments from "./pages/Tournaments/Tournaments";
-import About from "./pages/About/About";
+import routesObj from "./constants/routes";
+import Layout from "./components/Layout";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/home",
-    element: <Home />,
-  },
-  {
-    path: "/about/",
-    element: <About />,
-  },
-  {
-    path: "/calendar/",
-    element: <Calendar />,
-  },
-  {
-    path: "/events/",
-    element: <Events />,
-  },
-  {
-    path: "/meetings/",
-    element: <Meetings />,
-  },
-  {
-    path: "/tournaments/",
-    element: <Tournaments />,
-  },
-]);
+const routesArr = Object.values(routesObj);
+
+const router = createBrowserRouter(
+  routesArr.map((route) => {
+    return {
+      path: route.path,
+      element: (
+        <Layout heroTitle={route.heroTitle}>
+          <route.component />
+        </Layout>
+      ),
+    };
+  })
+);
+// {
+//   path: "/mustang-spotlight",
+//   element: (
+//     <Layout>
+//       <MustangSpotlight />
+//     </Layout>
+//   ),
+// },
 
 function App() {
   return (
