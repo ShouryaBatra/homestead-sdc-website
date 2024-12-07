@@ -14,22 +14,17 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { Link, useLocation } from "react-router-dom";
+import routesObj from "../constants/routes";
+import colors from "../theme/colors";
 
 const drawerWidth = 240;
-const navItems = [
-  "Home",
-  "Calendar",
-  "Meetings",
-  "Summaries",
-  "Tournaments",
-  "Links",
-  "Events",
-  "Mustang Spotlight",
-  "About",
-];
 
 function Header(props) {
   const { window } = props;
+  const location = useLocation();
+
+  const navItems = Object.values(routesObj);
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -43,10 +38,17 @@ function Header(props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+        {navItems?.map((item) => (
+          <ListItem key={item.path} disablePadding>
+            <ListItemButton
+              sx={{
+                textAlign: "center",
+                backgroundColor:
+                  location.pathname === item.path ? "#1976d2" : "transparent",
+                color: location.pathname === item.path ? "#fff" : "inherit",
+              }}
+            >
+              <ListItemText primary={item.title} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -75,34 +77,65 @@ function Header(props) {
 
   const WebHeader = () => {
     return (
-      <Box sx={{ display: { xs: "none", sm: "block" } }}>
+      <Box
+        sx={{
+          direction: "row",
+          display: "flex",
+          width: "100%",
+          justifyContent: "space-between",
+          // backgroundColor: "red",
+          // display: { xs: "none", sm: "inline" },
+        }}
+      >
         <Typography
           variant="h6"
           component="div"
-          // sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+          sx={{
+            display: "flex",
+            color: "#000",
+            // backgroundColor: "yellow",
+            // flexGrow: 0,
+            // flexShrink: 1,
+            // display: { xs: "block", sm: "block" },
+          }}
         >
           Homestead Speech & Debate
         </Typography>
-        <Box sx={{ display: { xs: "none", sm: "block" } }}>
+        <Box
+          sx={{
+            display: "flex",
+            // backgroundColor: "green",
+            // flexGrow: 1,
+            // display: { xs: "none", sm: "inline" }
+          }}
+        >
           {navItems.map((item) => (
-            <Button key={item} sx={{ color: "#fff" }}>
-              {item}
-            </Button>
+            <Link to={`${item.path}`} key={item.path}>
+              <Button
+                sx={{
+                  color: "#000",
+                  fontWeight:
+                    location.pathname === item.path ? "bold" : "normal",
+                }}
+              >
+                {item.title}
+              </Button>
+            </Link>
           ))}
         </Box>
       </Box>
     );
   };
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", backgroundColor: colors.darkenedRed }}>
       <CssBaseline />
       <AppBar component="nav">
-        <Toolbar>
-          <MobileHeader />
+        <Toolbar sx={{ backgroundColor: "white" }}>
+          {/* <MobileHeader /> */}
           <WebHeader />
         </Toolbar>
       </AppBar>
-      <nav>
+      {/* <nav>
         <Drawer
           container={container}
           variant="temporary"
@@ -121,48 +154,7 @@ function Header(props) {
         >
           {drawer}
         </Drawer>
-      </nav>
-
-      <Box component="main" sx={{ p: 3 }}>
-        {/* <Toolbar /> */}
-        {/* <Typography>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-          unde fugit veniam eius, perspiciatis sunt? Corporis qui ducimus
-          quibusdam, aliquam dolore excepturi quae. Distinctio enim at eligendi
-          perferendis in cum quibusdam sed quae, accusantium et aperiam? Quod
-          itaque exercitationem, at ab sequi qui modi delectus quia corrupti
-          alias distinctio nostrum. Minima ex dolor modi inventore sapiente
-          necessitatibus aliquam fuga et. Sed numquam quibusdam at officia
-          sapiente porro maxime corrupti perspiciatis asperiores, exercitationem
-          eius nostrum consequuntur iure aliquam itaque, assumenda et! Quibusdam
-          temporibus beatae doloremque voluptatum doloribus soluta accusamus
-          porro reprehenderit eos inventore facere, fugit, molestiae ab officiis
-          illo voluptates recusandae. Vel dolor nobis eius, ratione atque
-          soluta, aliquam fugit qui iste architecto perspiciatis. Nobis,
-          voluptatem! Cumque, eligendi unde aliquid minus quis sit debitis
-          obcaecati error, delectus quo eius exercitationem tempore. Delectus
-          sapiente, provident corporis dolorum quibusdam aut beatae repellendus
-          est labore quisquam praesentium repudiandae non vel laboriosam quo ab
-          perferendis velit ipsa deleniti modi! Ipsam, illo quod. Nesciunt
-          commodi nihil corrupti cum non fugiat praesentium doloremque
-          architecto laborum aliquid. Quae, maxime recusandae? Eveniet dolore
-          molestiae dicta blanditiis est expedita eius debitis cupiditate porro
-          sed aspernatur quidem, repellat nihil quasi praesentium quia eos,
-          quibusdam provident. Incidunt tempore vel placeat voluptate iure
-          labore, repellendus beatae quia unde est aliquid dolor molestias
-          libero. Reiciendis similique exercitationem consequatur, nobis placeat
-          illo laudantium! Enim perferendis nulla soluta magni error, provident
-          repellat similique cupiditate ipsam, et tempore cumque quod! Qui, iure
-          suscipit tempora unde rerum autem saepe nisi vel cupiditate iusto.
-          Illum, corrupti? Fugiat quidem accusantium nulla. Aliquid inventore
-          commodi reprehenderit rerum reiciendis! Quidem alias repudiandae eaque
-          eveniet cumque nihil aliquam in expedita, impedit quas ipsum nesciunt
-          ipsa ullam consequuntur dignissimos numquam at nisi porro a, quaerat
-          rem repellendus. Voluptates perspiciatis, in pariatur impedit, nam
-          facilis libero dolorem dolores sunt inventore perferendis, aut
-          sapiente modi nesciunt.
-        </Typography> */}
-      </Box>
+      </nav> */}
     </Box>
   );
 }
