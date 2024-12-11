@@ -8,7 +8,6 @@ function Layout({ children, heroTitle }) {
   console.log(children);
   return (
     <div>
-      <Banner />
       <Header />
       <HeroSection heroTitle={heroTitle} />
       {children}

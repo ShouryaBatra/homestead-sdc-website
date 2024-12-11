@@ -16,14 +16,6 @@ const router = createBrowserRouter(
     };
   })
 );
-// {
-//   path: "/mustang-spotlight",
-//   element: (
-//     <Layout>
-//       <MustangSpotlight />
-//     </Layout>
-//   ),
-// },
 
 function App() {
   return (
