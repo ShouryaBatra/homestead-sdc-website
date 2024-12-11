@@ -17,14 +17,25 @@ import Button from "@mui/material/Button";
 import { Link, useLocation } from "react-router-dom";
 import routesObj from "../constants/routes";
 import colors from "../theme/colors";
+import Banner from "./Banner";
 
 const drawerWidth = 240;
 
+const isCurrentRouteActive = (currentPath, path) => {
+  // currPath could be  / or /home = path /home
+  // handle the / and /home routes
+  if (currentPath === "/" || currentPath === "/home") {
+    return path === "/home";
+  }
+  return currentPath === path;
+};
 function Header(props) {
   const { window } = props;
   const location = useLocation();
+  const navItems = Object.values(routesObj)?.filter(
+    (item) => item?.isIncludedInHeader
+  );
 
-  const navItems = Object.values(routesObj);
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -43,9 +54,15 @@ function Header(props) {
             <ListItemButton
               sx={{
                 textAlign: "center",
-                backgroundColor:
-                  location.pathname === item.path ? "#1976d2" : "transparent",
-                color: location.pathname === item.path ? "#fff" : "inherit",
+                backgroundColor: isCurrentRouteActive(
+                  location.pathname,
+                  item.path
+                )
+                  ? "#1976d2"
+                  : "transparent",
+                color: isCurrentRouteActive(location.pathname, item.path)
+                  ? "#fff"
+                  : "inherit",
               }}
             >
               <ListItemText primary={item.title} />
@@ -114,8 +131,9 @@ function Header(props) {
               <Button
                 sx={{
                   color: "#000",
-                  fontWeight:
-                    location.pathname === item.path ? "bold" : "normal",
+                  fontWeight: isCurrentRouteActive(location.pathname, item.path)
+                    ? "bold"
+                    : "normal",
                 }}
               >
                 {item.title}
@@ -127,15 +145,17 @@ function Header(props) {
     );
   };
   return (
-    <Box sx={{ display: "flex", backgroundColor: colors.darkenedRed }}>
-      <CssBaseline />
-      <AppBar component="nav">
-        <Toolbar sx={{ backgroundColor: "white" }}>
-          {/* <MobileHeader /> */}
-          <WebHeader />
-        </Toolbar>
-      </AppBar>
-      {/* <nav>
+    <>
+      <Box sx={{ display: "flex", backgroundColor: colors.darkenedRed }}>
+        <CssBaseline />
+        <AppBar component="nav">
+          <Banner />
+          <Toolbar sx={{ backgroundColor: "white" }}>
+            {/* <MobileHeader /> */}
+            <WebHeader />
+          </Toolbar>
+        </AppBar>
+        {/* <nav>
         <Drawer
           container={container}
           variant="temporary"
@@ -155,7 +175,8 @@ function Header(props) {
           {drawer}
         </Drawer>
       </nav> */}
-    </Box>
+      </Box>
+    </>
   );
 }
 
