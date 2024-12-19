@@ -99,6 +99,18 @@ export default function Tournaments() {
           </Typography>
         </Box>
       </Box>
+
+      <Box sx={{ backgroundColor: colors.lightRed, paddingX: "100px" }}>
+        <Typography>Hello</Typography>
+        <hr
+          style={{
+            backgroundColor: colors.lightRed,
+            borderTop: `border-top: 3px solid #bbb`,
+            margin: 0,
+            display: "flex",
+          }}
+        />
+      </Box>
     </>
   );
 }
