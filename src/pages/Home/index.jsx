@@ -1,10 +1,22 @@
-import { Button, Box, Typography } from "@mui/material";
+import {
+  Button,
+  Box,
+  Typography,
+  CardActionArea,
+  CardMedia,
+} from "@mui/material";
 import Header from "../../components/Header";
 
 import colors from "../../theme/colors";
 import Section from "../../components/Section";
 
 import logoImage from "../../assets/images/logo.png";
+
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+
+import logoBanner from "../../assets/images/logoBanner.jpeg";
+import LinktreeBox from "../../components/LinktreeBox";
 
 export default function Home() {
   return (
@@ -67,7 +79,17 @@ export default function Home() {
         </ul>
       </Section>
 
-      <Section headingText={"Check out our Linktree!"}></Section>
+      <Section headingText={"Check out our Linktree!"}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            padding: "50px",
+          }}
+        >
+          <LinktreeBox width="300px" />
+        </Box>
+      </Section>
     </>
   );
 }
