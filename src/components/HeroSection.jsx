@@ -10,8 +10,9 @@ function HeroSection({ heroTitle }) {
         backgroundImage: `url(${heroBackgroundImg})`,
         justifyContent: "center",
         alignItems: "center",
+        paddingTop: "100px",
       }}
-      height="400px"
+      height="450px"
     >
       <Stack
         direction="column"

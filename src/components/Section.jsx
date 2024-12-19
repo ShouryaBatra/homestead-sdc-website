@@ -12,7 +12,7 @@ function Section({ children, headingText }) {
           justifyContent: "center",
           alignItems: "center",
           height: "100px",
-          margin: "10px",
+          // margin: "10px",
         }}
       >
         <Typography
