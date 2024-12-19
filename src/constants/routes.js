@@ -68,6 +68,7 @@ const routesObj = {
   },
   about: {
     title: "About",
+    component: About,
     path: "/about",
     heroTitle: "About",
     isIncludedInHeader: true,

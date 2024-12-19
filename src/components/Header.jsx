@@ -18,6 +18,7 @@ import { Link, useLocation } from "react-router-dom";
 import routesObj from "../constants/routes";
 import colors from "../theme/colors";
 import Banner from "./Banner";
+import About from "../pages/About";
 
 const drawerWidth = 240;
 
