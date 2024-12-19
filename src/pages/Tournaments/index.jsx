@@ -18,6 +18,7 @@ export default function Tournaments() {
               fontWeight: 700,
               fontFamily: "Roboto Condensed",
               padding: "10px",
+              paddingTop: "20px",
             }}
           >
             Sign up for upcoming tournaments here!
@@ -100,8 +101,50 @@ export default function Tournaments() {
         </Box>
       </Box>
 
-      <Box sx={{ backgroundColor: colors.lightRed, paddingX: "100px" }}>
-        <Typography>Hello</Typography>
+      <Box
+        sx={{
+          backgroundColor: colors.lightRed,
+          paddingX: "100px",
+          fontFamily: "Roboto Condensed",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+          }}
+        >
+          <Box>
+            <Typography sx={{ padding: "10px" }}>
+              Fill out this Google Form to indicate interest:
+            </Typography>
+            <Typography sx={{ padding: "10px", fontWeight: "800" }}>
+              BY:
+            </Typography>
+            <Typography sx={{ padding: "10px", fontWeight: "800" }}>
+              THIS FORM IS BINDING.
+            </Typography>
+          </Box>
+
+          <Box>
+            <Typography
+              sx={{
+                padding: "10px",
+                color: colors.darkenedRed,
+                fontWeight: "800",
+                fontSize: "22px",
+              }}
+            >
+              [Tournament Name]
+            </Typography>
+            <Typography sx={{ padding: "10px" }}>Location:</Typography>
+            <Typography sx={{ padding: "10px", fontWeight: "800" }}>
+              Date:
+            </Typography>
+          </Box>
+        </Box>
+
         <hr
           style={{
             backgroundColor: colors.lightRed,
