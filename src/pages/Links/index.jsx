@@ -21,27 +21,71 @@ export default function Links() {
           }}
         >
           <Box sx={{ display: "flex", flexDirection: "column" }}>
-            <Typography sx={{ paddingY: "10px" }}>
+            <Typography
+              sx={{
+                paddingY: "10px",
+                fontFamily: "Roboto Condensed",
+                fontWeight: "700",
+                fontSize: "19px",
+              }}
+            >
               Form to link your tabroom account:
             </Typography>
 
             <Box sx={{ paddingY: "10px" }}>
-              <Typography>Submit your monster packet:</Typography>
-              <ul>
+              <Typography
+                sx={{
+                  fontFamily: "Roboto Condensed",
+                  fontWeight: "700",
+                  fontSize: "19px",
+                }}
+              >
+                Submit your monster packet:
+              </Typography>
+              <ul
+                style={{
+                  listStyleType: "square",
+                }}
+              >
                 <li>
-                  <Typography>Upload as a PDF to: </Typography>
+                  <Typography
+                    sx={{ fontFamily: "Roboto Condensed", fontSize: "17px" }}
+                  >
+                    Upload as a PDF to:{" "}
+                  </Typography>
                 </li>
               </ul>
             </Box>
 
-            <Typography sx={{ paddingY: "10px" }}>
+            <Typography
+              sx={{
+                paddingY: "10px",
+                fontFamily: "Roboto Condensed",
+                fontWeight: "700",
+                fontSize: "19px",
+              }}
+            >
               NSDA Membership (after paying):
             </Typography>
           </Box>
 
-          <Box sx={{ display: "flex", flexDirection: "row" }}>
-            <Typography>MONSTER PACKETS:</Typography>
-            <Typography>Competitor Checklist: link</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+            }}
+          >
+            <Typography sx={{ fontSize: "24px" }}>MONSTER PACKETS:</Typography>
+            <Typography sx={{ fontSize: "24px" }}>
+              Competitor Checklist:{" "}
+              <a
+                href="https://docs.google.com/document/d/1QYjrK-zeM_lS1vL-vqxIQTz4etOmpI9Wt-wqK6_srjk/edit?tab=t.0"
+                style={{ color: "black" }}
+              >
+                link
+              </a>
+            </Typography>
           </Box>
         </Box>
       </Section>
