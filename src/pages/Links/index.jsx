@@ -90,7 +90,89 @@ export default function Links() {
         </Box>
       </Section>
 
-      <Section headingText={"For Parents"}></Section>
+      {/* <Section headingText={"For Parents"}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            paddingX: "150px",
+            paddingY: "30px",
+          }}
+        >
+          <Box>
+            <Typography
+              sx={{
+                paddingY: "10px",
+                fontFamily: "Roboto Condensed",
+                fontWeight: "700",
+                fontSize: "19px",
+              }}
+            >
+              Form to link your tabroom account:
+            </Typography>
+          </Box>
+
+          <Box sx={{ display: "flex", flexDirection: "row" }}>
+            <Typography>JUDGE TRAINING SLIDES: link</Typography>
+            <Box>
+              <Typography>Parent Meeting Slides:</Typography>
+              <Typography>Parent Meeting Video:</Typography>
+            </Box>
+          </Box>
+        </Box>
+      </Section> */}
+
+      <Section headingText={"For Parents"}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            paddingX: "150px",
+            paddingY: "50px",
+          }}
+        >
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            <Typography
+              sx={{
+                paddingBottom: "30px",
+                fontFamily: "Roboto Condensed",
+                fontWeight: "700",
+                fontSize: "19px",
+              }}
+            >
+              Form to link your tabroom account:
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+            }}
+          >
+            <Typography sx={{ fontSize: "24px" }}>
+              JUDGE TRAINING SLIDES:{" "}
+              <a
+                href="https://docs.google.com/document/d/1QYjrK-zeM_lS1vL-vqxIQTz4etOmpI9Wt-wqK6_srjk/edit?tab=t.0"
+                style={{ color: "black" }}
+              >
+                link
+              </a>
+            </Typography>
+
+            <Box>
+              <Typography sx={{ fontSize: "24px" }}>
+                Parent Meeting Slides:
+              </Typography>
+
+              <Typography sx={{ fontSize: "24px", paddingTop: "10px" }}>
+                Parent Meeting Video:
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
+      </Section>
     </>
   );
 }
