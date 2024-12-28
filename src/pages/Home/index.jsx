@@ -17,6 +17,7 @@ import CardContent from "@mui/material/CardContent";
 
 import logoBanner from "../../assets/images/logoBanner.jpeg";
 import LinktreeBox from "../../components/LinktreeBox";
+import BasicMenu from "../../components/HoverMenu";
 
 export default function Home() {
   return (
@@ -89,6 +90,12 @@ export default function Home() {
         >
           <LinktreeBox width="300px" />
         </Box>
+      </Section>
+
+      <Section headingText={"Test"}>
+        <div style={{ paddingBottom: "50px" }}>
+          <BasicMenu />
+        </div>
       </Section>
     </>
   );

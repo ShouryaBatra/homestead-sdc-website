@@ -58,7 +58,7 @@ export const aboutImages = {
   },
   debateCommitteeLeaders: {
     chijulTripathy: {
-      name: "chijulTripathy",
+      name: "Chijul Tripathy",
       position: "Lincoln-Douglas",
       img: chijulTripathy,
     },

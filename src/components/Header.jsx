@@ -19,6 +19,7 @@ import routesObj from "../constants/routes";
 import colors from "../theme/colors";
 import Banner from "./Banner";
 import About from "../pages/About";
+import HoverMenu from "./HoverMenu";
 
 const drawerWidth = 240;
 
@@ -127,20 +128,31 @@ function Header(props) {
             // display: { xs: "none", sm: "inline" }
           }}
         >
-          {navItems.map((item) => (
-            <Link to={`${item.path}`} key={item.path}>
-              <Button
-                sx={{
-                  color: "#000",
-                  fontWeight: isCurrentRouteActive(location.pathname, item.path)
-                    ? "bold"
-                    : "normal",
-                }}
-              >
-                {item.title}
-              </Button>
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.isMenu ? (
+              <HoverMenu
+                parent={item}
+                items={item.items}
+                currentPathName={location.pathname}
+              />
+            ) : (
+              <Link to={`${item.path}`} key={item.path}>
+                <Button
+                  sx={{
+                    color: "#000",
+                    fontWeight: isCurrentRouteActive(
+                      location.pathname,
+                      item.path
+                    )
+                      ? "bold"
+                      : "normal",
+                  }}
+                >
+                  {item.title}
+                </Button>
+              </Link>
+            )
+          )}
         </Box>
       </Box>
     );
