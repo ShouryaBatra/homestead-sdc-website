@@ -91,12 +91,6 @@ export default function Home() {
           <LinktreeBox width="300px" />
         </Box>
       </Section>
-
-      <Section headingText={"Test"}>
-        <div style={{ paddingBottom: "50px" }}>
-          <BasicMenu />
-        </div>
-      </Section>
     </>
   );
 }
