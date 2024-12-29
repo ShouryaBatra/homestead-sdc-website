@@ -41,6 +41,8 @@ export default function Tournaments() {
                   href="https://docs.google.com/document/d/1QYjrK-zeM_lS1vL-vqxIQTz4etOmpI9Wt-wqK6_srjk/edit?tab=t.0"
                   style={{
                     color: "black",
+                    paddingLeft: "4px",
+                    paddingRight: "4px",
                   }}
                 >
                   {" "}
