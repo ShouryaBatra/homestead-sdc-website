@@ -44,7 +44,14 @@ function Banner() {
           display: "inline",
         }}
       >
-        <Button size="small" variant="outlined" color="black">
+        <Button
+          size="small"
+          variant="outlined"
+          color="black"
+          onClick={() => {
+            window.location.href = "/mustang-spotlight";
+          }}
+        >
           Click here to read more
         </Button>
       </Box>
