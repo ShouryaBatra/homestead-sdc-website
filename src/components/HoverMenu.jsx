@@ -60,6 +60,7 @@ export default function HoverMenu({ parent, items = [], currentPathName }) {
           const isActive = isCurrentItemActive(path);
           return (
             <MenuItem
+              key={path}
               onClick={() => handleNavigation(path)}
               sx={{ fontWeight: isActive ? "bold" : "normal" }}
             >

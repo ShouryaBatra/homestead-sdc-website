@@ -19,14 +19,28 @@ import logoBanner from "../../assets/images/logoBanner.jpeg";
 import LinktreeBox from "../../components/LinktreeBox";
 import BasicMenu from "../../components/HoverMenu";
 
+import getBlockFromTab, {
+  content,
+  getTab,
+  getTabContent,
+} from "../../assets/content";
+import SearchBar from "../../components/SearchBar";
+import SearchBarModal from "../../components/SearchBarModal";
+
 export default function Home() {
+  const homeTabBlocks = getTabContent("Home");
+  const home = getTab("home");
+  // console.log(homeTabBlocks);
+
+  // home.getBlock("hero");
+  // getBlockFromTab("home", "hero")
   return (
     <>
       {/* <Box height="20px" width="20px" m={"10px"} bgcolor={colors.textRed} />
       <Box height="20px" width="20px" m={"10px"} bgcolor={colors.lightRed} />
       <Box height="20px" width="20px" m={"10px"} bgcolor={colors.darkenedRed} /> */}
 
-      <Section headingText={"Welcome to our Club Website!"}>
+      <Section headingText={home.getBlock("banner1Title")}>
         <ul
           style={{
             listStyleType: "square",
@@ -64,7 +78,7 @@ export default function Home() {
                   paddingBottom: "30px",
                 }}
               >
-                Latest News
+                {home.getBlock("section1Title")}
               </Typography>
               <li
                 style={{
@@ -73,14 +87,14 @@ export default function Home() {
                   paddingLeft: "20px",
                 }}
               >
-                Check out our committee meeting times in the meetings tab!
+                {home.getBlock("section1Subtitle")}
               </li>
             </Box>
           </Box>
         </ul>
       </Section>
 
-      <Section headingText={"Check out our Linktree!"}>
+      <Section headingText={home.getBlock("banner2Title")}>
         <Box
           sx={{
             display: "flex",
@@ -90,6 +104,9 @@ export default function Home() {
         >
           <LinktreeBox width="300px" />
         </Box>
+      </Section>
+      <Section headingText={"Search"}>
+        <SearchBarModal />
       </Section>
     </>
   );

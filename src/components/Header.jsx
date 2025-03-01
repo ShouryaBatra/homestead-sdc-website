@@ -131,6 +131,7 @@ function Header(props) {
           {navItems.map((item) =>
             item.isMenu ? (
               <HoverMenu
+                key={item.path}
                 parent={item}
                 items={item.items}
                 currentPathName={location.pathname}

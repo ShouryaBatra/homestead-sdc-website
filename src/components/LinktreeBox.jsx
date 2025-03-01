@@ -8,8 +8,10 @@ import {
 
 import logoBanner from "../assets/images/logoBanner.jpeg";
 import colors from "../theme/colors";
+import { getTab } from "../assets/content";
 
 export default function LinktreeBox({ width }) {
+  const home = getTab("home");
   return (
     <Card sx={{ maxWidth: width }}>
       <CardActionArea>
@@ -31,10 +33,10 @@ export default function LinktreeBox({ width }) {
               fontSize: "13pt",
             }}
           >
-            Homestead Speech & Debate | Instagram | Linktree
+            {home.getBlock("cardTitle")}
           </Typography>
           <Typography variant="body2" sx={{}}>
-            Check out our links! 🌟
+            {home.getBlock("cardSubtitle")}
           </Typography>
         </CardContent>
       </CardActionArea>
